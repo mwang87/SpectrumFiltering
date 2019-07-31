@@ -1,0 +1,22 @@
+FROM tensorflow/tensorflow:latest-py3-jupyter
+
+MAINTAINER Mingxun Wang <mwang87@gmail.com>
+
+RUN pip install keras
+RUN pip install scipy
+RUN pip install pandas
+RUN pip install sklearn
+RUN pip install requests
+RUN pip install requests_cache
+RUN pip install pydot
+RUN apt-get update
+RUN apt-get install  -y graphviz
+RUN pip install bokeh
+RUN pip install xmltodict
+RUN pip install lxml
+RUN pip install pyteomics
+RUN pip install seaborn
+RUN apt-get install wget
+RUN pip install networkx
+
+CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --notebook-dir=/tf --ip 0.0.0.0 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''"]
